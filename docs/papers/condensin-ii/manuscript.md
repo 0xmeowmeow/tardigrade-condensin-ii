@@ -2,7 +2,7 @@
 title: "Tardigrades have a complete condensin II: two divergent CAP-H2 kleisins in three eutardigrade genomes"
 author:
   - "Meow-Ludo Meow-Meow (meow@meow-meow.io)"
-date: "Draft preprint, 19 September 2026"
+date: "Preprint, version 1, 19 September 2026 · doi:10.5281/zenodo.22832511"
 abstract: |
   Condensin II shapes interphase genome architecture: species that lack it tend to fold their chromosomes in a Rabl-like, type-I configuration, while species that have it form chromosome territories (type II). In the study that established this, the tardigrade *Hypsibius dujardini* (now *H. exemplaris*) was the only species of 24 in which neither condensin's accessory subunits could be found. It was counted among the type-I species that lack condensin II, and the authors left open whether the subunits had diverged beyond recognition. Here we searched the annotated proteomes of three eutardigrades and found both complexes complete. Reciprocal BLAST recovers condensin I and the condensin II HEAT subunits CAP-D3 and CAP-G2. A profile hidden Markov model built from 33 animal CAP-H2 sequences finds the missing kleisin: each species has two CAP-H2 genes. Both carry the Pfam CNDH2_N and CNDH2_C domains, score against CAP-H2 and not CAP-H, and form a single tardigrade clade within CAP-H2 in a maximum-likelihood kleisin tree (ultrafast bootstrap 94 for the placement, 100 for the clade). Conserved gene order dates the duplication to before the split between *Hypsibius* and *Paramacrobiotus*. Copy a sits at an orthologous locus in all three species, and the b copies of *Hypsibius* and *Paramacrobiotus* share a conserved neighbourhood. In *H. exemplaris*, CAP-H2 is co-expressed with CAP-D3, CAP-G2, SMC2 and SMC4 across 48 developmental and adult samples; its correlations with them rank in the top 0.1–0.3% of 14,851 expressed genes. In single embryos, all condensin II subunits are expressed through the first ~46 hours after laying and fall to near zero thereafter, while CAP-H persists. The two *Ramazzottius varieornatus* CAP-H2 genes were already listed in a pan-eukaryotic survey (van Hooff et al. 2025); the *H. exemplaris* and *Paramacrobiotus* genes, the correction of the species record behind the architecture study, the paralog history (from phylogeny and gene order) and the expression data are new here. With the tardigrade reclassified, the condensin II–architecture association still holds (Fisher's exact p = 0.019, from 0.007). The tardigrade becomes the seventh species with a complete condensin II and a type-I call, a call that rests on a single manually annotated feature in whole-animal Hi-C. Early embryos, where condensin II is expressed and chromosomes remain individualised through interphase, are the place to test whether tardigrade genome architecture changes with developmental stage.
 geometry: margin=2.3cm
@@ -138,7 +138,7 @@ For the embryos, we used Levin et al.'s [-@levin2016] single-embryo counts for 6
 - seed sets `condensin_caph2_seeds.fa` and `condensin_caph_seeds.fa`;
 - the alignment and tree.
 
-Code, derived data, alignments and trees: GitHub [repository URL on release]; this preprint: Zenodo [DOI on release]. Each claim is recorded with its source and page in the project's knowledge graph.
+Code, derived data, alignments and trees: <https://github.com/0xmeowmeow/tardigrade-condensin-ii>. This preprint: Zenodo, [doi:10.5281/zenodo.22832511](https://doi.org/10.5281/zenodo.22832511). Each claim is recorded with its source and page in the project's knowledge graph.
 
 # Acknowledgements and use of AI
 
