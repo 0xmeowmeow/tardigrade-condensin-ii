@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the preprint."
+title: "Tardigrades have a complete condensin II: two divergent CAP-H2 kleisins in three eutardigrade genomes (code and data)"
+authors:
+  - family-names: Meow-Meow
+    given-names: Meow-Ludo
+    email: meow@meow-meow.io
+date-released: 2026-09-19
+license: MIT

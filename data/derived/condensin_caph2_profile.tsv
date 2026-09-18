@@ -1,0 +1,16 @@
+species	protein	length	E_caph2_profile	E_caph_profile	CNDH2_N (PF06278)	CNDH2_M (PF16858)	CNDH2_C (PF16869)	Cnd2 (PF05786)
+H. exemplaris	OWA52468.1	719	1.0e-15	1.0e+00	5e-08 [54-164]		2e-10 [579-685]	
+H. exemplaris	OWA51095.1	646	4.7e-14	1.0e+00	1e-06 [9-122]		8e-11 [512-617]	
+H. exemplaris	OQV23316.1	1036	1.0e+00	2.1e-08				CAP-H (control)
+R. varieornatus	GAU96458.1	702	1.9e-20	1.0e+00	3e-08 [31-148]		9e-12 [547-652]	
+R. varieornatus	GAU88883.1	617	3.8e-12	1.0e+00	5e-06 [14-125]		7e-11 [498-608]	
+R. varieornatus	GAU89914.1	1069	1.0e+00	7.2e-11				CAP-H (control)
+Paramacrobiotus (GCF_019649055.1)	XP_055348578.1	626	4.3e-13	1.0e+00	3e-09 [12-119]		1e-11 [493-623]	
+Paramacrobiotus (GCF_019649055.1)	XP_055355132.1	656	3.9e-11	1.0e+00	7e-07 [18-134]		6e-12 [507-622]	
+Paramacrobiotus (GCF_019649055.1)	XP_055355123.1	656	3.9e-11	1.0e+00	7e-07 [18-134]		6e-12 [507-622]	
+Paramacrobiotus (GCF_019649055.1)	XP_055355139.1	656	3.9e-11	1.0e+00	7e-07 [18-134]		6e-12 [507-622]	
+Paramacrobiotus (GCF_019649055.1)	XP_055347164.1	1089	1.0e+00	8.4e-17				CAP-H (control)
+# null: shuffled H. exemplaris proteome, best CAP-H2 profile E per replicate: [None, None, None]
+# co-expression, Yoshida 2017, 48 samples, 14852 expressed genes: Spearman (share of all genes ranking higher)
+# CAP-H2 BV898_16921: CAP-H2 BV898_15594 0.85 (0.9%); CAP-D3 0.89 (0.2%); CAP-G2 0.90 (0.1%); SMC2 0.87 (0.3%); SMC4 0.89 (0.2%); CAP-H 0.67 (14.9%)
+# CAP-H2 BV898_15594: CAP-H2 BV898_16921 0.85 (1.3%); CAP-D3 0.79 (6.7%); CAP-G2 0.85 (1.2%); SMC2 0.85 (0.9%); SMC4 0.82 (3.6%); CAP-H 0.66 (19.6%)

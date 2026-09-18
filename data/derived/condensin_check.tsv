@@ -1,0 +1,25 @@
+species	subunit	tardigrade_protein	annotation	evalue	method	best_human_hit_back	verdict
+H. exemplaris	SMC2	OQV15428.1	Structural maintenance of chromosomes protein 2 [Hypsibius exemplaris]	8.5e-173	blastp	Structural maintenance of chromosomes protein 2	reciprocal best hit
+H. exemplaris	SMC4	OWA52980.1	Structural maintenance of chromosomes protein 4 [Hypsibius exemplaris]	7.4e-166	blastp	Structural maintenance of chromosomes protein 4	reciprocal best hit
+H. exemplaris	NCAPD2	OQV13474.1	putative Condensin complex subunit 1 [Hypsibius exemplaris]	4.0e-22	blastp	Condensin complex subunit 1	reciprocal best hit
+H. exemplaris	NCAPG	OWA50980.1	hypothetical protein BV898_15481 [Hypsibius exemplaris]	3.8e-06	blastp	Condensin complex subunit 3	reciprocal best hit
+H. exemplaris	NCAPH	OQV23316.1	hypothetical protein BV898_02764 [Hypsibius exemplaris]	3.0e-22	psiblast	no human hit	not reciprocal
+H. exemplaris	NCAPD3	OQV21910.1	putative Condensin-2 complex subunit D3 [Hypsibius exemplaris]	2.3e-34	blastp	Condensin-2 complex subunit D3	reciprocal best hit
+H. exemplaris	NCAPG2	OQV13088.1	hypothetical protein BV898_12630 [Hypsibius exemplaris]	9.9e-14	blastp	Condensin-2 complex subunit G2	reciprocal best hit
+H. exemplaris	NCAPH2						not found
+R. varieornatus	SMC2	GAV04166.1	hypothetical protein RvY_14482 [Ramazzottius varieornatus]	0.0e+00	blastp	Structural maintenance of chromosomes protein 2	reciprocal best hit
+R. varieornatus	SMC4	GAV06634.1	hypothetical protein RvY_16590 [Ramazzottius varieornatus]	1.6e-175	blastp	Structural maintenance of chromosomes protein 4	reciprocal best hit
+R. varieornatus	NCAPD2	GAU88108.1	hypothetical protein RvY_00864 [Ramazzottius varieornatus]	5.5e-23	blastp	Condensin complex subunit 1	reciprocal best hit
+R. varieornatus	NCAPG						not found
+R. varieornatus	NCAPH						not found
+R. varieornatus	NCAPD3	GAU88810.1	hypothetical protein RvY_01442 [Ramazzottius varieornatus]	3.1e-21	blastp	Condensin-2 complex subunit D3	reciprocal best hit
+R. varieornatus	NCAPG2	GAU94400.1	hypothetical protein RvY_06180 [Ramazzottius varieornatus]	1.0e-18	blastp	Condensin-2 complex subunit G2	reciprocal best hit
+R. varieornatus	NCAPH2						not found
+Paramacrobiotus (GCF_019649055.1)	SMC2	XP_055343015.1	LOW QUALITY PROTEIN: structural maintenance of chromosomes protein 2-like [Paramacrobiotus metropolitanus]	0.0e+00	blastp	Structural maintenance of chromosomes protein 2	reciprocal best hit
+Paramacrobiotus (GCF_019649055.1)	SMC4	XP_055342529.1	structural maintenance of chromosomes protein 4-like [Paramacrobiotus metropolitanus]	0.0e+00	blastp	Structural maintenance of chromosomes protein 4	reciprocal best hit
+Paramacrobiotus (GCF_019649055.1)	NCAPD2	XP_055334720.1	condensin complex subunit 1-like [Paramacrobiotus metropolitanus]	2.0e-27	blastp	Condensin complex subunit 1	reciprocal best hit
+Paramacrobiotus (GCF_019649055.1)	NCAPG	XP_055332312.1	uncharacterized protein LOC129584215 [Paramacrobiotus metropolitanus]	3.8e-06	blastp	Condensin complex subunit 3	reciprocal best hit
+Paramacrobiotus (GCF_019649055.1)	NCAPH	XP_055347164.1	uncharacterized protein LOC129594491 [Paramacrobiotus metropolitanus]	8.9e-23	psiblast	Condensin complex subunit 2	reciprocal best hit
+Paramacrobiotus (GCF_019649055.1)	NCAPD3	XP_055335315.1	LOW QUALITY PROTEIN: condensin-2 complex subunit D3-like [Paramacrobiotus metropolitanus]	2.8e-13	blastp	Condensin-2 complex subunit D3	reciprocal best hit
+Paramacrobiotus (GCF_019649055.1)	NCAPG2	XP_055351168.1	uncharacterized protein LOC129597579 [Paramacrobiotus metropolitanus]	4.3e-12	blastp	Condensin-2 complex subunit G2	reciprocal best hit
+Paramacrobiotus (GCF_019649055.1)	NCAPH2						not found

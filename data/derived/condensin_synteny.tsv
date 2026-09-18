@@ -1,0 +1,16 @@
+locus_1	locus_2	anchors_within_20_genes	pct_of_ortholog_pairs_with_at_least_as_many	p_random_pairs	scaffold_1	scaffold_2	reciprocal_best_hit
+Hex a OWA52468.1	Rva a GAU96458.1	8	41.6	0.0011	MTYJ01000269.1	BDGG01000003.1	yes
+Hex a OWA52468.1	Rva b GAU88883.1	0	100.0	1	MTYJ01000269.1	BDGG01000001.1	no
+Hex b OWA51095.1	Rva a GAU96458.1	0	100.0	1	MTYJ01000214.1	BDGG01000003.1	no
+Hex b OWA51095.1	Rva b GAU88883.1	0	100.0	1	MTYJ01000214.1	BDGG01000001.1	yes
+Hex a OWA52468.1	Pme a XP_055355132.1	2	63.5	0.0053	MTYJ01000269.1	NW_026570224.1	yes
+Hex a OWA52468.1	Pme ? XP_055348578.1	0	100.0	1	MTYJ01000269.1	NW_026570223.1	no
+Hex b OWA51095.1	Pme a XP_055355132.1	0	100.0	1	MTYJ01000214.1	NW_026570224.1	no
+Hex b OWA51095.1	Pme ? XP_055348578.1	7	45.1	0.0024	MTYJ01000214.1	NW_026570223.1	yes
+Rva a GAU96458.1	Pme a XP_055355132.1	2	59.3	0.0064	BDGG01000003.1	NW_026570224.1	yes
+Rva a GAU96458.1	Pme ? XP_055348578.1	0	100.0	1	BDGG01000003.1	NW_026570223.1	no
+Rva b GAU88883.1	Pme a XP_055355132.1	0	100.0	1	BDGG01000001.1	NW_026570224.1	no
+Rva b GAU88883.1	Pme ? XP_055348578.1	0	100.0	1	BDGG01000001.1	NW_026570223.1	yes
+# Hex-Rva: 8,827 reciprocal best hits; ortholog pairs keep a median of 5 anchors within ±20 genes (mean 6.86; 73% keep at least one); random pairs mean 0.034
+# Hex-Pme: 8,642 reciprocal best hits; ortholog pairs keep a median of 5 anchors within ±20 genes (mean 7.11; 70% keep at least one); random pairs mean 0.047
+# Rva-Pme: 8,203 reciprocal best hits; ortholog pairs keep a median of 3 anchors within ±20 genes (mean 6.54; 67% keep at least one); random pairs mean 0.058

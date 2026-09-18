@@ -1,0 +1,5 @@
+data/derived/genome.sqlite
+data/raw/
+data/derived/condensin_check/
+data/derived/condensin_synteny/
+__pycache__/
