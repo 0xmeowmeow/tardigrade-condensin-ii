@@ -5,6 +5,7 @@
 fig1-domains:     Pfam domain maps of human CAP-H2 and CAP-H and the tardigrade kleisins
 fig2-tree:        maximum-likelihood kleisin tree (data/derived/condensin_tree/kleisins.treefile), if present
 fig3-expression:  (a) mean TPM per Yoshida 2017 condition, (b) Levin 2016 single embryos, (c) co-expression ranks
+fig4-structure:   interface confidence (ipTM) of Boltz-2 predictions, C- and N-terminal kleisin regions and controls
 """
 import collections, json, pathlib, re, sqlite3
 import numpy as np
@@ -111,6 +112,32 @@ def fig_expression():
     fig.tight_layout()
     save(fig, 'fig3-expression')
 
+def fig_structure():
+    f = ROOT / 'data/derived/caph2_structure/summary.tsv'
+    if not f.exists(): print('no structure summary yet'); return
+    rows = {l.split('\t')[0]: l.split('\t') for l in f.read_text().splitlines()[1:]}
+    ip = lambda k: float(rows[k][1]); rng = lambda k: [float(x) for x in rows[k][2].split('-')]
+    sp = [('hsa', 'Human'), ('hex_a', 'H. exemplaris a'), ('hex_b', 'H. exemplaris b'), ('rva_a', 'R. varieornatus a'), ('rva_b', 'R. varieornatus b'),
+          ('pme_a', 'P. metropolitanus a'), ('pme_b', 'P. metropolitanus b')]
+    fig, axs = plt.subplots(1, 2, figsize=(6.8, 3.4), sharey=False)
+    for ax, (pre, title, part) in zip(axs, [('c_', 'a  C-terminal region + SMC4 head', 'C'), ('n_', 'b  N-terminal region + SMC2 neck', 'N')]):
+        labs, vals, errs, cols = [], [], [], []
+        for k, lab in sp:
+            key = pre + k
+            if key not in rows: continue
+            v = ip(key); lo, hi = rng(key); labs.append(lab); vals.append(v); errs.append([v - lo, hi - v]); cols.append('#555' if k == 'hsa' else '#c05621')
+        ctl = [(f'ctl_swap{part}_hsa', 'Human, wrong partner'), (f'ctl_swap{part}_hex_a', 'H. ex. a, wrong partner'), (f'ctl_swap{part}_hex_b', 'H. ex. b, wrong partner'),
+               (f'ctl_shuf{part}_hsa', 'Human, scrambled'), (f'ctl_shuf{part}_hex_a', 'H. ex. a, scrambled'), (f'ctl_shuf{part}_hex_b', 'H. ex. b, scrambled')]
+        if part == 'C': ctl.insert(0, ('ctl_caph_c_hex', 'H. ex. CAP-H (condensin I)'))
+        for key, lab in ctl:
+            if key not in rows: continue
+            v = ip(key); lo, hi = rng(key); labs.append(lab); vals.append(v); errs.append([v - lo, hi - v]); cols.append('#6b8e23' if 'caph' in key else '#bbb')
+        y = np.arange(len(labs))[::-1]
+        ax.barh(y, vals, color=cols, xerr=np.clip(np.array(errs), 0, None).T, error_kw=dict(lw=0.6, capsize=1.5, ecolor='#333'))
+        ax.set_yticks(y); ax.set_yticklabels(labs, fontsize=6.5); ax.set_xlim(0, 1); ax.axvline(0.8, ls=':', lw=0.8, color='#333')
+        ax.set_xlabel('ipTM (best of 3; bar = range)'); ax.set_title(title, loc='left', fontsize=8, fontweight='bold')
+    fig.tight_layout(); save(fig, 'fig4-structure')
+
 if __name__ == '__main__':
-    fig_domains(); fig_expression(); fig_tree()
+    fig_domains(); fig_expression(); fig_tree(); fig_structure()
     print('figures in', OUT)
