@@ -1,6 +1,7 @@
 """Summarise the Boltz-2 predictions of the tardigrade CAP-H2 kleisins (inputs from caph2_structure_inputs.py).
 
-  ~/miniconda3/envs/boltz/bin/python tools/genome/caph2_structure_analysis.py
+  ~/miniconda3/envs/boltz/bin/python tools/genome/caph2_structure_analysis.py [--n2]
+  --n2: the N-terminal retry with the longer SMC2 neck (runs_n2, inputs from --n-long) -> summary_n2.tsv
 
 Per prediction, the best of the diffusion samples by Boltz confidence score, and the spread over samples:
   iptm            interface pTM (0-1): how confident the model is in the relative placement of the two chains
@@ -11,12 +12,13 @@ Per prediction, the best of the diffusion samples by Boltz confidence score, and
 For mono_*: mean pLDDT over the Pfam CNDH2_N and CNDH2_C envelopes, against the AlphaFold DB model where one exists.
 Output: data/derived/caph2_structure/summary.tsv
 """
-import glob, json, pathlib
+import glob, json, pathlib, sys
 import numpy as np
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 D = ROOT / 'data/derived/caph2_structure'
-PRED = D / 'runs/boltz_results_inputs/predictions'
+N2 = '--n2' in sys.argv
+PRED = D / ('runs_n2/boltz_results_inputs_n2/predictions' if N2 else 'runs/boltz_results_inputs/predictions')
 AF = {'hsa': 'Q6IBW4', 'hex_a': 'A0A9X6NG78', 'hex_b': 'A0A9X6RKL3', 'rva_a': 'A0A1D1VD77', 'rva_b': 'A0A1D1UR96'}
 
 def atoms(pdb):
@@ -94,7 +96,7 @@ def main():
             afv = af_domain_plddt(AF[key], want) if key in AF else None
             row['domains'] = 'N {:.0f}, C {:.0f}'.format(*ours) + (' (AlphaFold DB: N {:.0f}, C {:.0f})'.format(*afv) if afv else '')
         rows.append(row)
-    out = D / 'summary.tsv'
+    out = D / ('summary_n2.tsv' if N2 else 'summary.tsv')
     cols = ['name', 'iptm', 'iptm_range', 'plddt_A', 'ipae', 'contacts_A', 'core_contacts', 'domains']
     fmt = lambda v: f'{v:.3f}' if isinstance(v, float) else str(v)
     out.write_text('\t'.join(cols) + '\n' + ''.join('\t'.join(fmt(r[c]) for c in cols) + '\n' for r in rows))

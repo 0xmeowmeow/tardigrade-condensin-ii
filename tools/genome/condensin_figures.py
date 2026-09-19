@@ -91,7 +91,7 @@ def fig_expression():
     a.set_ylabel('TPM / gene maximum'); a.legend(fontsize=6, ncol=4, frameon=False, loc='upper center', bbox_to_anchor=(0.5, 1.16))
     a.set_title('a', loc='left', fontweight='bold', x=-0.07)
     b = fig.add_subplot(2, 2, 3)
-    L = D['levin']; h = np.array(L['minutes']) * 2 / 60  # the workbook's minutes are half of real time (matched to Yoshida 2017 daily samples)
+    L = D['levin']; h = np.array(L['minutes']) * 2 / 60  # workbook minutes are halved (claim:inf-levin-axis-98h)
     for n, c in G.items():
         if n not in L['cpm']: continue
         v = np.array(L['cpm'][n]); k = np.ones(5) / 5
@@ -115,19 +115,26 @@ def fig_expression():
 def fig_structure():
     f = ROOT / 'data/derived/caph2_structure/summary.tsv'
     if not f.exists(): print('no structure summary yet'); return
-    rows = {l.split('\t')[0]: l.split('\t') for l in f.read_text().splitlines()[1:]}
+    read = lambda f: {l.split('\t')[0]: l.split('\t') for l in f.read_text().splitlines()[1:]} if f.exists() else {}
+    rows = read(f); rows.update(read(ROOT / 'data/derived/caph2_structure/summary_n2.tsv'))   # N2 keys are distinct (n2_, ctl_n2shuf_)
     ip = lambda k: float(rows[k][1]); rng = lambda k: [float(x) for x in rows[k][2].split('-')]
     sp = [('hsa', 'Human'), ('hex_a', 'H. exemplaris a'), ('hex_b', 'H. exemplaris b'), ('rva_a', 'R. varieornatus a'), ('rva_b', 'R. varieornatus b'),
           ('pme_a', 'P. metropolitanus a'), ('pme_b', 'P. metropolitanus b')]
-    fig, axs = plt.subplots(1, 2, figsize=(6.8, 3.4), sharey=False)
-    for ax, (pre, title, part) in zip(axs, [('c_', 'a  C-terminal region + SMC4 head', 'C'), ('n_', 'b  N-terminal region + SMC2 neck', 'N')]):
+    panels = [('c_', 'a  C-terminal region + SMC4 head', 'C', 3), ('n_', 'b  N-terminal region + SMC2 (first construct)', 'N', 3),
+              ('n2_', 'c  N-terminal region + longer SMC2', 'N2', 5)]
+    fig = plt.figure(figsize=(6.8, 6.6)); gs = fig.add_gridspec(2, 2, height_ratios=[1.35, 0.8])
+    axs = [fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]), fig.add_subplot(gs[1, 0])]
+    for ax, (pre, title, part, ns) in zip(axs, panels):
         labs, vals, errs, cols = [], [], [], []
         for k, lab in sp:
             key = pre + k
             if key not in rows: continue
             v = ip(key); lo, hi = rng(key); labs.append(lab); vals.append(v); errs.append([v - lo, hi - v]); cols.append('#555' if k == 'hsa' else '#c05621')
-        ctl = [(f'ctl_swap{part}_hsa', 'Human, wrong partner'), (f'ctl_swap{part}_hex_a', 'H. ex. a, wrong partner'), (f'ctl_swap{part}_hex_b', 'H. ex. b, wrong partner'),
-               (f'ctl_shuf{part}_hsa', 'Human, scrambled'), (f'ctl_shuf{part}_hex_a', 'H. ex. a, scrambled'), (f'ctl_shuf{part}_hex_b', 'H. ex. b, scrambled')]
+        if part == 'N2':
+            ctl = [('ctl_n2shuf_hsa', 'Human, scrambled'), ('ctl_n2shuf_hex_b', 'H. ex. b, scrambled')]
+        else:
+            ctl = [(f'ctl_swap{part}_hsa', 'Human, wrong partner'), (f'ctl_swap{part}_hex_a', 'H. ex. a, wrong partner'), (f'ctl_swap{part}_hex_b', 'H. ex. b, wrong partner'),
+                   (f'ctl_shuf{part}_hsa', 'Human, scrambled'), (f'ctl_shuf{part}_hex_a', 'H. ex. a, scrambled'), (f'ctl_shuf{part}_hex_b', 'H. ex. b, scrambled')]
         if part == 'C': ctl.insert(0, ('ctl_caph_c_hex', 'H. ex. CAP-H (condensin I)'))
         for key, lab in ctl:
             if key not in rows: continue
@@ -135,7 +142,7 @@ def fig_structure():
         y = np.arange(len(labs))[::-1]
         ax.barh(y, vals, color=cols, xerr=np.clip(np.array(errs), 0, None).T, error_kw=dict(lw=0.6, capsize=1.5, ecolor='#333'))
         ax.set_yticks(y); ax.set_yticklabels(labs, fontsize=6.5); ax.set_xlim(0, 1); ax.axvline(0.8, ls=':', lw=0.8, color='#333')
-        ax.set_xlabel('ipTM (best of 3; bar = range)'); ax.set_title(title, loc='left', fontsize=8, fontweight='bold')
+        ax.set_xlabel(f'ipTM (best of {ns}; bar = range)'); ax.set_title(title, loc='left', fontsize=8, fontweight='bold')
     fig.tight_layout(); save(fig, 'fig4-structure')
 
 if __name__ == '__main__':

@@ -116,5 +116,22 @@ def main():
     (OUT / 'constructs.json').write_text(json.dumps(meta, indent=1))
     print(len(list(INP.glob('*.yaml'))), 'inputs;', {k: v[1] if isinstance(v, tuple) else v for k, v in meta.items()})
 
+def n_long():
+    """Round 2 for the N-terminal region: SMC2 constructs with ~150 residues of each coiled-coil strand (human 1-300 + 950-1197)
+    in case the neck site was cut short. Output: data/derived/caph2_structure/inputs_n2/"""
+    global INP
+    INP = OUT / 'inputs_n2'; INP.mkdir(parents=True, exist_ok=True)
+    HUMAN_SMC['SMC2'] = ('O95347', (1, 300), (950, 1197))
+    S = seqs(); fd = json.loads((ROOT / 'data/derived/condensin_figdata.json').read_text())
+    doms = {d['acc']: {x['pfam']: x for x in d['domains']} for d in fd['domains']}
+    rnd = random.Random(1); shuf = lambda s: ''.join(rnd.sample(s, len(s))); meta = {}
+    for key in ('hsa', 'hex_a', 'hex_b', 'rva_b', 'pme_b'):
+        acc, sp = KLEISIN[key]; N, nr = region(S[acc], doms[acc]['CNDH2_N'])
+        smc2, rng = construct(S, sp, 'SMC2'); meta[key] = {'N': nr, 'SMC2': rng}
+        yaml(f'n2_{key}', [('A', N), ('B', smc2)])
+        if key in ('hsa', 'hex_b'): yaml(f'ctl_n2shuf_{key}', [('A', shuf(N)), ('B', smc2)])
+    (OUT / 'constructs_n2.json').write_text(json.dumps(meta, indent=1)); print(meta)
+
 if __name__ == '__main__':
-    main()
+    import sys
+    n_long() if '--n-long' in sys.argv else main()

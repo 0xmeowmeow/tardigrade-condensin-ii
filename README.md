@@ -1,6 +1,6 @@
 # Tardigrades have a complete condensin II
 
-Code and data for the preprint *Tardigrades have a complete condensin II: two divergent CAP-H2 kleisins in three eutardigrade genomes* (Meow-Ludo Meow-Meow, 2026; Zenodo, all versions [doi:10.5281/zenodo.22832510](https://doi.org/10.5281/zenodo.22832510); version 2 doi:10.5281/zenodo.22838790).
+Code and data for the preprint *Tardigrades have a complete condensin II: two divergent CAP-H2 kleisins in three eutardigrade genomes* (Meow-Ludo Meow-Meow, 2026; Zenodo, all versions [doi:10.5281/zenodo.22832510](https://doi.org/10.5281/zenodo.22832510); version 2 doi:10.5281/zenodo.22838790; version 3 [doi:10.5281/zenodo.22845658](https://doi.org/10.5281/zenodo.22845658)).
 
 Hoencamp et al. (2021, *Science* 372:984) found no condensin accessory subunits in the tardigrade *Hypsibius dujardini* (now *H. exemplaris*), and counted it among the species that lack condensin II and fold their genomes in a Rabl-like (type-I) way. We searched three eutardigrade proteomes and found both condensin complexes complete, including two divergent CAP-H2 kleisins in each species. The results rest on these analyses:
 
@@ -9,7 +9,8 @@ Hoencamp et al. (2021, *Science* 372:984) found no condensin accessory subunits 
 - conserved gene order around each paralog;
 - co-expression and developmental expression;
 - a recomputation of Hoencamp et al.'s condensin II–architecture test;
-- structure predictions of the kleisin regions bound to the condensin ring (version 2).
+- structure predictions of the kleisin regions bound to the condensin ring (version 2);
+- the N-terminal regions predicted again with a longer SMC2 construct, five samples each (version 3; Fig. 4c).
 
 The two *Ramazzottius varieornatus* CAP-H2 genes were first listed by van Hooff et al. (2025, *Cell Reports* 44:115855).
 
@@ -30,7 +31,7 @@ The two *Ramazzottius varieornatus* CAP-H2 genes were first listed by van Hooff 
 | `data/derived/condensin_caph2_profile.tsv` | Profile hits, Pfam domains, null, co-expression summary |
 | `data/derived/condensin_tree/` | Kleisin sequences, trimmed alignment, tree and IQ-TREE report |
 | `data/derived/condensin_synteny.tsv` | Anchors for every pair of CAP-H2 loci |
-| `data/derived/caph2_structure/` | Boltz-2 inputs, construct boundaries, `summary.tsv`, and the best model of each main prediction (`models/*.pdb`) |
+| `data/derived/caph2_structure/` | Boltz-2 inputs, construct boundaries, `summary.tsv`, and the best model of each main prediction (`models/*.pdb`); version 3's longer-SMC2 N-terminal run in `inputs_n2/`, `constructs_n2.json`, `summary_n2.tsv` (`caph2_structure_analysis.py --n2`) and `models/n2_*.pdb`, `models/ctl_n2shuf_*.pdb` |
 | `data/derived/condensin_figdata.json` | Domain positions and expression profiles plotted in the figures |
 | `data/derived/genome.sqlite.gz` | Expression inputs: Yoshida et al. 2017 TPM (48 samples) and Levin et al. 2016 single-embryo counts (62 embryos), with the transcript-to-gene join onto nHd_3.1 gene models |
 
