@@ -111,7 +111,7 @@ def main():
             yaml(f'ctl_shufC_{key}', [('A', shuf(C)), ('B', meta[f'{sp}_SMC4'][0])])
         meta[key] = {'acc': acc, 'N': nr, 'C': cr, 'len': len(k)}
     capH = S[CAPH_HEX]
-    # CAP-H C-terminal region: last 170 residues of the Cnd2 hit near the C terminus
+    # CAP-H C-terminal region: the last 200 residues, 837-1036 (the Cnd2 hit near the C terminus)
     yaml('ctl_caph_c_hex', [('A', capH[-200:]), ('B', meta['hex_SMC4'][0])])
     (OUT / 'constructs.json').write_text(json.dumps(meta, indent=1))
     print(len(list(INP.glob('*.yaml'))), 'inputs;', {k: v[1] if isinstance(v, tuple) else v for k, v in meta.items()})
