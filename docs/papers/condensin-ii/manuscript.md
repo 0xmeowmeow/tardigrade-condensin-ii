@@ -13,6 +13,7 @@ header-includes:
   - \usepackage{booktabs}
   - \usepackage{float}
   - \floatplacement{figure}{H}
+  - \usepackage[3Dmenu]{media9}
   - \usepackage{newunicodechar}
   - \newunicodechar{−}{\ensuremath{-}}
   - \newunicodechar{≤}{\ensuremath{\leq}}
@@ -71,16 +72,6 @@ These counts are ordinary for true orthologs. Across all orthologous pairs, the 
 
 So both copies were present in the common ancestor of *Hypsibius*, *Ramazzottius* and *Paramacrobiotus*. That ancestor predates the split between the superfamilies Hypsibioidea and Macrobiotoidea, which is deep within the eutardigrade order Parachela. The pairings from gene order and from sequence agree: every a–a and b–b pair is a reciprocal best hit, and no a–b pair is.
 
-## The tardigrade CAP-H2 C-terminal domains are predicted to bind SMC4
-
-A kleisin closes the condensin ring by binding both SMC heads: its C-terminal winged-helix domain binds the SMC4 head, and its N-terminal domain binds the neck of SMC2 [@hirano2012]. Alone, kleisin domains are largely disordered, which explains the low confidence of the AlphaFold database models of the tardigrade proteins (mean pLDDT 32–49 over the Pfam domains, against 67 and 86 for human CAP-H2). We therefore predicted each region together with the partner it should bind. Each CAP-H2 C-terminal region (the CNDH2_C envelope ± 40 residues) was paired with a construct of the same species' SMC4 head and the start of its coiled coil. Each N-terminal region (CNDH2_N ± 40) was paired with the matching SMC2 head-and-neck construct (Methods).
-
-The C-terminal regions of five of the six tardigrade CAP-H2 proteins are predicted to bind SMC4 with confidence close to human CAP-H2 (Fig. 4a): ipTM 0.78 and 0.79 for the two *H. exemplaris* proteins, 0.76 for *R. varieornatus* b, and 0.81 for both *Paramacrobiotus* proteins, against 0.83 for human. The exception is *R. varieornatus* a (0.68, unstable across samples). The condensin I kleisin CAP-H of *H. exemplaris*, which should bind the same head, scores 0.81. Three controls score lower: the same regions offered SMC2 instead (0.31 and 0.36; human 0.59), and residue-shuffled regions (0.19–0.45).
-
-The N-terminal regions give no signal (Fig. 4b). Human CAP-H2 is placed on the SMC2 neck at 0.67, but every tardigrade N-terminal region scores 0.29–0.48, no better than its own controls. That end is either too divergent for the model with the available sequence alignments, or bound differently; these predictions cannot tell which.
-
-![**Predicted binding of the CAP-H2 regions to the condensin ring.** Interface confidence (ipTM) of Boltz-2 predictions, best of three samples; bars show the range across samples. (a) CAP-H2 C-terminal regions with the same species' SMC4 head, the *H. exemplaris* condensin I kleisin CAP-H with SMC4 (green), and controls: the region offered SMC2 instead (wrong partner) or with its residues shuffled (grey). (b) CAP-H2 N-terminal regions with the SMC2 head and neck, and the same controls. The dotted line marks 0.8, above which predicted interfaces are usually correct.](figs/fig4-structure.pdf){width=100%}
-
 ## CAP-H2 is expressed with the other condensin II subunits
 
 Both *H. exemplaris* CAP-H2 genes (BV898_16921 and BV898_15594) are expressed. Across the 48 RNA-seq samples of Yoshida et al. [-@yoshida2017] (eggs on days 1–5, juveniles on days 1–7 and active and dried adults, in triplicate), BV898_16921 correlates with CAP-G2 (Spearman ρ 0.90), CAP-D3 (0.89), SMC4 (0.89) and SMC2 (0.87). Against all 14,851 other expressed genes, each of these correlations ranks in the top 0.1–0.3%; its correlation with CAP-H (0.67) ranks in the top 15% (Fig. 3c). BV898_15594 follows the same pattern less tightly: CAP-G2 0.85 (top 1.2%) and CAP-H 0.66 (top 20%).
@@ -90,6 +81,25 @@ The subunits peak together on egg days 1–2 and in adults, and are low in juven
 In 62 single embryos [@levin2016], the condensin II subunits and SMC2 and SMC4 are expressed through the first ~46 hours after laying (median 76–223 counts per million) and drop to near zero after ~47 hours (Fig. 3b). CAP-H stays at a median of 47 counts per million. The times here use the embryo time axis corrected to ~98 hours of development; the source workbook's minutes are halved relative to real time. The drop coincides with the largest transcriptional change in *H. exemplaris* development, between egg days 2 and 3. It also falls at a library-batch boundary in this dataset, so its exact timing needs care.
 
 ![**Expression of the *H. exemplaris* condensin genes.** (a) Mean TPM per condition in Yoshida et al. 2017, scaled to each gene's maximum. E1–E5: egg days; J1–J7: juvenile days; act and tun: active and dried adults, in two sample sizes (10k and 30 animals). (b) Counts per million in 62 single embryos (Levin et al. 2016) against hours after laying; lines are 5-embryo running means. BV898_15594 has no transcript in this assembly. (c) Spearman correlation of CAP-H2 BV898_16921 with every expressed gene across the 48 Yoshida samples; vertical lines mark the condensin subunits.](figs/fig3-expression.pdf){width=100%}
+
+## The tardigrade CAP-H2 C-terminal domains are predicted to bind SMC4
+
+A kleisin closes the condensin ring by binding both SMC heads: its C-terminal winged-helix domain binds the SMC4 head, and its N-terminal domain binds the neck of SMC2 [@hirano2012]. Alone, kleisin domains are largely disordered, which explains the low confidence of the AlphaFold database models of the tardigrade proteins (mean pLDDT 32–49 over the Pfam domains, against 67 and 86 for human CAP-H2). We therefore predicted each region together with the partner it should bind. Each CAP-H2 C-terminal region (the CNDH2_C envelope ± 40 residues) was paired with a construct of the same species' SMC4 head and the start of its coiled coil. Each N-terminal region (CNDH2_N ± 40) was paired with the matching SMC2 head-and-neck construct (Methods).
+
+The C-terminal regions of five of the six tardigrade CAP-H2 proteins are predicted to bind SMC4 with confidence close to human CAP-H2 (Fig. 4a): ipTM 0.78 and 0.79 for the two *H. exemplaris* proteins, 0.76 for *R. varieornatus* b, and 0.81 for both *Paramacrobiotus* proteins, against 0.83 for human. The exception is *R. varieornatus* a (0.68, unstable across samples). The condensin I kleisin CAP-H of *H. exemplaris*, which should bind the same head, scores 0.81. Three controls score lower: the same regions offered SMC2 instead (0.31 and 0.36; human 0.59), and residue-shuffled regions (0.19–0.45).
+
+The N-terminal regions give no signal (Fig. 4b). Human CAP-H2 is placed on the SMC2 neck at 0.67, but every tardigrade N-terminal region scores 0.29–0.48, no better than its own controls. That end is either too divergent for the model with the available sequence alignments, or bound differently; these predictions cannot tell which. Figure 5 shows one of the confident C-terminal models in 3D.
+
+![**Predicted binding of the CAP-H2 regions to the condensin ring.** Interface confidence (ipTM) of Boltz-2 predictions, best of three samples; bars show the range across samples. (a) CAP-H2 C-terminal regions with the same species' SMC4 head, the *H. exemplaris* condensin I kleisin CAP-H with SMC4 (green), and controls: the region offered SMC2 instead (wrong partner) or with its residues shuffled (grey). (b) CAP-H2 N-terminal regions with the SMC2 head and neck, and the same controls. The dotted line marks 0.8, above which predicted interfaces are usually correct.](figs/fig4-structure.pdf){width=100%}
+
+```{=latex}
+\begin{figure}[H]
+\centering
+\includemedia[width=0.5\linewidth,height=0.95\linewidth,activate=pageopen,3Dmenu,3Dlights=Headlamp,3Dbg=1 1 1,
+  3Dcoo=0.21 -2.58 0.99,3Dc2c=0 0 -1,3Droo=234.0,3Daac=30,3Droll=0]{\includegraphics[width=0.5\linewidth]{figs/c_hex_b-poster.png}}{figs/c_hex_b.u3d}
+\caption{\textbf{Predicted structure of the \emph{H. exemplaris} CAP-H2 (paralog b) C-terminal region on the SMC4 head.} Grey: the SMC4 head and the start of its coiled coil (the artificial linker joining the two halves of the construct is not shown). Coloured: the CAP-H2 region, by per-residue confidence (pLDDT): blue confident, white middling, red uncertain. The confident helices of the winged-helix domain lie on the head; the flanking segments, added to the construct as padding, are uncertain. In Adobe Acrobat or Reader this figure is an interactive 3D model (click to turn it); other PDF viewers show this still image. The models for all predictions are in the data repository.}
+\end{figure}
+```
 
 ## The condensin II–architecture association with the tardigrade reclassified
 
