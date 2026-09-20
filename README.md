@@ -1,6 +1,6 @@
 # Tardigrades have a complete condensin II
 
-Code and data for the preprint *Tardigrades have a complete condensin II: two divergent CAP-H2 kleisins in three eutardigrade genomes* (Meow-Ludo Meow-Meow, 2026; Zenodo, all versions [doi:10.5281/zenodo.22832510](https://doi.org/10.5281/zenodo.22832510); version 2 doi:10.5281/zenodo.22838790; version 3 [doi:10.5281/zenodo.22845658](https://doi.org/10.5281/zenodo.22845658)).
+Code and data for the preprint *Tardigrades have a complete condensin II: two divergent CAP-H2 kleisins in three eutardigrade genomes* (Meow-Ludo Meow-Meow, 2026; Zenodo, all versions [doi:10.5281/zenodo.22832510](https://doi.org/10.5281/zenodo.22832510); version 2 doi:10.5281/zenodo.22838790; version 3 doi:10.5281/zenodo.22845658; version 4 [doi:10.5281/zenodo.22846138](https://doi.org/10.5281/zenodo.22846138), which corrects version 3, see ERRATA.md).
 
 Hoencamp et al. (2021, *Science* 372:984) found no condensin accessory subunits in the tardigrade *Hypsibius dujardini* (now *H. exemplaris*), and counted it among the species that lack condensin II and fold their genomes in a Rabl-like (type-I) way. We searched three eutardigrade proteomes and found both condensin complexes complete, including two divergent CAP-H2 kleisins in each species. The results rest on these analyses:
 

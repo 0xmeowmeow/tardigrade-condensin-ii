@@ -2,7 +2,7 @@
 
 ## Version 3 (doi:10.5281/zenodo.22845658)
 
-An independent recomputation of every structure-prediction number from the raw Boltz-2 outputs (Codex, OpenAI, 20 September 2026) reproduced all ipTM values, ranges, medians and interface counts, and found these errors in version 3. A corrected version 4 is being prepared.
+An independent recomputation of every structure-prediction number from the raw Boltz-2 outputs (Codex, OpenAI, 20 September 2026) reproduced all ipTM values, ranges, medians and interface counts, and found these errors in version 3. Corrected in [version 4](https://doi.org/10.5281/zenodo.22846138), published 20 September 2026.
 
 - **SMC2 contact residues (Results, N-terminal paragraph).** The native residue numbers of the SMC2 neck segments were off by the construct's 12-residue linker. Correct, counting SMC2 residues touched by confident kleisin residues in each protein's own numbering: human 169–210 and 986–1032 (stated 168–232 and 992–1048); *H. exemplaris* b 168–212 and 994–1040; *R. varieornatus* b 171–211 and 1000–1043 (stated "about 168–250 and 990–1055"). `caph2_structure_analysis.py --n2` now writes these in column `smc_spans_native`.
 - **"Copy b closes the ring at both ends"** holds only for *H. exemplaris* b and *R. varieornatus* b, and for separately predicted interfaces, not a whole ring.
